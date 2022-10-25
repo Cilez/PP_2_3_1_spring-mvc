@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import web.models.Car;
 import web.service.CarService;
 
@@ -17,19 +19,11 @@ public class CarsController {
     private CarService dao;
 
     @GetMapping(value = "/cars")
-    public String printWelcomeCars(ModelMap model) {
-        model.addAttribute("messages", dao.getAll()
-                .stream()
-                .forEach()
-        );
-        return "index";
+    public String printWelcomeCars(@RequestParam(value = "count", defaultValue = "5") int count, ModelMap model) {
+        model.addAttribute("messages", dao.getFirst(count));
+        return "cars";
     }
 
-    @GetMapping("/{count}")
-    public String show(@PathVariable("count") int c, ModelMap model) {
-        model.addAttribute("messages",  dao.getFirst(c));
-        return "index";
-    }
 
     @Autowired
     public void setDao(CarService dao) {

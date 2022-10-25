@@ -3,13 +3,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>cars</title>
 </head>
 <body>
-<div>
-  <th:block th:each="msg : ${messages}">
-    <h1 th:text="${msg}"></h1>
-  </th:block>
-</div>
+<table>
+  <thead>
+  <tr>
+    <th>VIN</th>
+    <th>Model</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="msg : ${messages}">
+    <td th:utext="${msg.getVin()}"></td>
+    <td th:utext="${msg.getModel()}"></td>
+  </tr>
+  </tbody>
+</table>
 </body>
 </html>
