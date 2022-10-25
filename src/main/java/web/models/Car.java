@@ -34,4 +34,13 @@ public class Car {
     public void setVin(int vin) {
         this.vin = vin;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", producer='" + producer + '\'' +
+                ", vin=" + vin +
+                '}';
+    }
 }

@@ -1,8 +1,11 @@
 package web.models;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CarsList {
     List<Car> list = new ArrayList<>();
 
@@ -33,7 +36,7 @@ public class CarsList {
         list.remove(index);
     }
 
-    public Car getCar(int id) {
+    public Car getCarById(int id) {
         return list.get(id);
     }
 }
