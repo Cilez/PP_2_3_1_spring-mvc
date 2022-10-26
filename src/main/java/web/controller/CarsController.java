@@ -20,6 +20,9 @@ public class CarsController {
 
     @GetMapping(value = "/cars")
     public String printWelcomeCars(@RequestParam(value = "count", defaultValue = "5") int count, ModelMap model) {
+        if (dao.getAll().size() < count) {
+            count = dao.getAll().size();
+        }
         model.addAttribute("messages", dao.getFirst(count));
         return "cars";
     }
