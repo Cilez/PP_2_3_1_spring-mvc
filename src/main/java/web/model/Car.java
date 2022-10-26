@@ -1,4 +1,4 @@
-package web.models;
+package web.model;
 
 public class Car {
     String model;

@@ -2,8 +2,8 @@ package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import web.models.Car;
-import web.models.CarsList;
+import web.model.Car;
+import web.model.CarsList;
 
 import java.util.LinkedList;
 import java.util.List;
